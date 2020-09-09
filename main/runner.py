@@ -1,0 +1,18 @@
+from ui.project.qiqiao.public.runtime import Runtime
+from selenium import webdriver
+driver = webdriver.Chrome(executable_path="D:\Donny\MagicAutoTestFranmework\driver\chromedriver.exe")
+runtime = Runtime(driver)
+runtime.loginRuntime("WangDongYi@Aa","qiqiao123")
+runtime.openAppPage()
+runtime.clickApp("版本发布验收测试")
+runtime.clickLeftMenu("多表基础表")
+# runtime.clickButtonInTitle("添加")
+runtime.clickButtonInForm("添加",0)
+runtime.clickSubAddOneData("子表单")
+# runtime.clickSubFormButton("子表单")
+# runtime.sendValueToLineTextInSubForm("子表单","单行文本","自动化测试数据")
+# runtime.clickSaveButtonInSubForm("子表单","保存并继续添加")
+# runtime.sendValueToLineTextInSubForm("子表单","单行文本","自动化测试数据2222")
+# runtime.clickSaveButtonInSubForm("子表单","保存")
+runtime.clickEditButtonInSubForm()
+# time.sleep(5)
