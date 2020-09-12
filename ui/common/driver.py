@@ -3,6 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
+from selenium import webdriver
 
 class Driver(object):
 
@@ -345,10 +346,10 @@ class Driver(object):
             if handle != original_window:
                 self.driver.switch_to.window(handle)
 
-    def getScreenshot(self, file_path):
+    def getScreenshot(self):
         """将当前窗口的屏幕截图保存到PNG图像文件中.
         用法:
         driver.get_screen_shot('/Screenshots/foo.png')
         """
-        self.driver.get_screenshot_as_file(file_path)
+        self.driver.get_screenshot_as_base64()
 

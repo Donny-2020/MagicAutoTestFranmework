@@ -1,18 +1,19 @@
-from ui.project.qiqiao.public.runtime import Runtime
+from ui.project import qiqiao
 from selenium import webdriver
+import time
 driver = webdriver.Chrome(executable_path="D:\Donny\MagicAutoTestFranmework\driver\chromedriver.exe")
-runtime = Runtime(driver)
-runtime.loginRuntime("WangDongYi@Aa","qiqiao123")
-runtime.openAppPage()
-runtime.clickApp("版本发布验收测试")
-runtime.clickLeftMenu("多表基础表")
-# runtime.clickButtonInTitle("添加")
-runtime.clickButtonInForm("添加",0)
-runtime.clickSubAddOneData("子表单")
-# runtime.clickSubFormButton("子表单")
-# runtime.sendValueToLineTextInSubForm("子表单","单行文本","自动化测试数据")
-# runtime.clickSaveButtonInSubForm("子表单","保存并继续添加")
-# runtime.sendValueToLineTextInSubForm("子表单","单行文本","自动化测试数据2222")
-# runtime.clickSaveButtonInSubForm("子表单","保存")
-runtime.clickEditButtonInSubForm()
-# time.sleep(5)
+q= qiqiao
+q.public(driver).loginRuntime()
+q.public(driver).openAppPage()
+q.public(driver).clickApp("版本发布验收测试")
+q.public(driver).clickButtonInTitle("添加")
+# q.public(driver).clickExpand()
+q.singleChoice(driver).sendValue("单项选择",1)
+q.singleChoice(driver).dropDown("单项下拉",'北京')
+# q.public(driver).clickExpand()
+# q.number(driver).searchData("小数",10)
+# q.public(driver).clickSearchBtn()
+time.sleep(5)
+driver.quit()
+
+

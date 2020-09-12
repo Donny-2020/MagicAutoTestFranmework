@@ -1,0 +1,24 @@
+QA:
+  turn: True
+  url: https://tqy.do1.net.cn/qa-runtime
+  username: WangDongYi@Aa
+  password: qiqiao123
+
+UAT:
+  turn: False
+  url: http://runtime.qwqa.do1.work
+  username: wanghao@uat
+  password: qiqiao123
+
+beta:
+  turn: False
+  url: https://qy.do1.com.cn/qiqiao/runtime
+  username: WangDongYi@A
+  password: qiqiao123
+
+prod:
+  turn: False
+  url: https://qy.do1.com.cn/qiqiao/runtime
+  username: WangDongYi@A
+  password: qiqiao123
+
