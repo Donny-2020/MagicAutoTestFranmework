@@ -3,7 +3,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException,TimeoutException
-from selenium import webdriver
+from retrying import retry
 
 class Driver(object):
 
@@ -14,7 +14,7 @@ class Driver(object):
         '''
         self.driver=driver
 
-
+    @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def waitElement(self, by, value, secs=2):
         """
         等待元素显示
@@ -43,7 +43,7 @@ class Driver(object):
         except TimeoutException:
             print("查找元素超时请检查元素")
 
-
+    @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def getElement(self, css):
         """
         判断元素定位方式，并返回元素
@@ -75,6 +75,8 @@ class Driver(object):
             raise NameError(
                 "Please enter the correct targeting elements,'id','name','class','link_text','xpath','css'.")
         return element
+
+    @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def getElements(self, css):
         """
         判断元素定位方式，并返回元素列表
@@ -127,7 +129,7 @@ class Driver(object):
         """
         self.driver.set_window_size(wide, high)
 
-
+    @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def sendKeys(self, css, text):
         """
         操作输入框.
@@ -146,7 +148,7 @@ class Driver(object):
         el = self.getElement(css)
         el.clear()
 
-
+    @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def clickElement(self, css):
         """
         它可以点击任何文本/图像
@@ -212,7 +214,7 @@ class Driver(object):
         """
         self.driver.refresh()
 
-
+    @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def js(self, script,element):
         """
         执行JavaScript脚本.

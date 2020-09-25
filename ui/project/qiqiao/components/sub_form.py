@@ -1,19 +1,19 @@
 from ui.common.driver import Driver
 from retrying import retry
 class SubForm(Driver):
-    @retry(stop_max_attempt_number=3, wait_fixed=3000)
+    # @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def clickAddOneData(self,form_name):
         '''点击子表单，添加一行按钮'''
         loc = "xpath=>//div[@data-mark='{name}']//span[text()='添加一行']".format(name=form_name)
         self.clickElement(loc)
 
-    @retry(stop_max_attempt_number=3, wait_fixed=3000)
+    # @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def clickAddButton(self,form_name):
         '''点击子表单，添加按钮'''
         loc = "xpath=>//div[@data-mark='{name}']//span[text()='添加']".format(name=form_name)
         self.clickElement(loc)
 
-    @retry(stop_max_attempt_number=3, wait_fixed=3000)
+    # @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def clickSaveButton(self,subform,button_name):
         '''点击子表单中的按钮'''
         loc = "xpath=>//div[@data-mark='子表弹层_{sub}']//span[text()='{button}']".format(sub=subform,button=button_name)
