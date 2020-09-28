@@ -13,7 +13,7 @@ class SingleChoice(Driver):
         '''下拉类型输入值'''
         loc = readXml("single_choice","dropdown").format(name=filed_name)
         self.clickElement(loc)
-        self.clickElement(readXml("single_choice","value").format(name=value))
+        self.clickElement(readXml("single_choice","dropvalue").format(name=value))
 
     def searchData(self,filed_name,value):
         '''使用单项选择字段筛选页面数据'''

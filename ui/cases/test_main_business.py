@@ -108,7 +108,7 @@ class QiqiaoProblem(unittest.TestCase):
         '''通过人员选择筛选页面数据'''
 
         qiqiao.public(self.driver).clickExpand()
-        qiqiao.personSelector(self.driver).searchData("人员单选","刁","刁惠云")
+        qiqiao.personSelector(self.driver).searchData("人员单选","刁惠云")
         qiqiao.public(self.driver).clickSearchBtn()
         time.sleep(1)
         title = qiqiao.public(self.driver).getText("xpath=>//span[@class='el-pagination__total']")

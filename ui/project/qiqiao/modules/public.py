@@ -36,7 +36,7 @@ class Public(Driver):
 
     def clickButtonInForm(self,button_name,row_num):
         '''点击表单数据行，操作区按钮'''
-        loc = readXml("runtime","form_btn").format(button=button_name,row=row_num)
+        loc = readXml("runtime","form_btn").format(button=button_name,row=row_num-1)
         self.getElements(loc)[2].click()
 
     def clickSearchBtn(self):

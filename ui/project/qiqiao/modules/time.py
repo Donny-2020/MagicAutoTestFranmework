@@ -6,8 +6,8 @@ class Time(Driver):
     def sendValue(self,fild_name,value):
         '''时间输入值'''
         loc = readXml("time","sendValue").format(name=fild_name)
-        # loc = TimeElement().sendValueLoc.format(name=fild_name)
         self.sendKeys(loc,value)
+        self.clickElement(readXml("time","label").format(name=fild_name))
 
     def searchData(self,filed_name,start_time,end_time):
         '''使用时间字段筛选页面数据'''

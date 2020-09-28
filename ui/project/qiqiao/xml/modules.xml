@@ -7,7 +7,8 @@
 	</single_line_text>
 
 	<date name="日期">
-		<sendValue desc="日期输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</sendValue>
+		<sendValue desc="日期输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</sendValue>
+		<label desc="收起选择日期框">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/label</label>
 		<search desc="日期筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[1]</search>
 		<startTime desc="输入开始时间">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[1]</startTime>
 		<endTime desc="输入结束时间">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[2]</endTime>
@@ -16,7 +17,8 @@
 	</date>
 
 	<date_time name="日期时间">
-		<sendValue desc="日期时间输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</sendValue>
+		<sendValue desc="日期时间输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</sendValue>
+		<label desc="收起日期时间输入框">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/label</label>
 		<search desc="日期时间筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[1]</search>
 		<packup desc="收起输入框">xpath=>//div[@data-mark='{name}']/label</packup>
 		<subForm desc="子表日期时间输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
@@ -29,11 +31,13 @@
 	</multiline_text>
 
 	<multiple_choice name="多项选择">
-		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</sendValue>
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</sendValue>
+		<packupselector desc="下拉输入值收起下拉框">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/label</packupselector>
 		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
 		<selectorname desc="点击选项名称">xpath=>//div[@title='{name}']</selectorname>
 		<packup desc="收起下拉框">xpath=>//div[@data-mark='{name}']/label</packup>
 		<subForm desc="子表单中输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
+		<send desc="非下拉输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//label[{index}]//span[@class='el-checkbox__inner']</send>
 	</multiple_choice>
 
 	<number name="数字">
@@ -49,14 +53,16 @@
 	<single_choice name="单项选择">
 		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']//div/label[{index}]/span[@class='el-radio__input']</sendValue>
 		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<value desc="点击搜索下拉选项值">xpath=>//div[@title='{name}' and @class='text_ellipsis']</value>
 		<subForm desc="子表单中输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
 		<dropdown desc="下拉选项">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</dropdown>
-		<value desc="点击下拉选项值">xpath=>//div[@title='{name}' and @class='text_ellipsis']</value>
+		<dropvalue desc="输入时选择下拉值">xpath=>//li[@data-mark='{name}']</dropvalue>
 		<packup desc="收起下拉框">xpath=>//div[@data-mark='{name}']/label</packup>
 	</single_choice>
 
 	<time name="时间">
-		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</sendValue>
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</sendValue>
+		<label desc="收起事件输入框">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/label</label>
 		<startTime desc="搜索开始时间">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[1]</startTime>
 		<endTime desc="搜索结束时间">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[2]</endTime>
 		<packup desc="收起输入框">xpath=>//div[@data-mark='{name}']/label</packup>
@@ -76,9 +82,22 @@
 	</depart_selector>
 
 	<person_selector name="人员单选">
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//span</sendValue>
+		<input desc="人员搜索框">xpath=>//div[@data-mark='{name}']//input</input>
+		<fullname desc="选择姓名">xpath=>//div[@class='el-select-dropdown el-popper {name}']//span[contains(text(),'{fullname}')]</fullname>
+		<conf_btn desc="确定按钮">xpath=>//div[@class='el-dialog {name}']//button[@data-mark='确定按钮']</conf_btn>
 		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
 		<personname desc="点击要筛选的人名">xpath=>//div[@title='{}' and @class='text_ellipsis']</personname>
 	</person_selector>
+
+	<multiple_person name="人员多选">
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//span</sendValue>
+		<input desc="人员搜索框">xpath=>//div[@data-mark='{name}']//input</input>
+		<fullname desc="选择姓名">xpath=>//div[@class='el-select-dropdown el-popper {name}']//span[contains(text(),'{fullname}')]</fullname>
+		<conf_btn desc="确定按钮">xpath=>//div[@class='el-dialog {name}']//button[@data-mark='确定按钮']</conf_btn>
+		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<personname desc="点击要筛选的人名">xpath=>//div[@title='{}' and @class='text_ellipsis']</personname>
+	</multiple_person>
 
 	<score name="评分">
 		<search desc="筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>

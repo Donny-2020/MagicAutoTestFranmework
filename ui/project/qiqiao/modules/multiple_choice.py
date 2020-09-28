@@ -5,10 +5,22 @@ from ui.common.driver import Driver
 class MultipleChoice(Driver):
 
 
-    def sendValue(self,fild_name,value):
-        '''多项选择输入值'''
+    def checked(self,fild_name,*args):
+        '''非下拉多项选择输入值'''
+        for i in args:
+            loc = readXml("multiple_choice","send").format(name=fild_name,index=i)
+            self.clickElement(loc)
+
+
+    def dropDown(self,fild_name,*args):
+        '''下拉类型多项选择输入值'''
         loc = readXml("multiple_choice","sendValue").format(name=fild_name)
-        self.sendKeys(loc,value)
+        self.clickElement(loc)
+        time.sleep(0.5)
+        for value in args:
+            self.clickElement(readXml("multiple_choice", "selectorname").format(name=value))
+        self.clickElement(readXml("multiple_choice", "packupselector").format(name=fild_name))
+
 
 
     def searchData(self,filed_name,value):

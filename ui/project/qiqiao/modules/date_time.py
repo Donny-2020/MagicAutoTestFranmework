@@ -7,6 +7,7 @@ class DateTime(Driver):
         '''日期时间输入值'''
         loc = readXml("date_time","sendValue").format(name=fild_name)
         self.sendKeys(loc,value)
+        self.clickElement(readXml("date_time","label").format(name=fild_name))
 
     def searchData(self,filed_name,value):
         '''使用日期时间字段筛选页面数据'''
