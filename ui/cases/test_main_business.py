@@ -16,14 +16,14 @@ class QiqiaoProblem(unittest.TestCase):
         time.sleep(1)
         self.driver.quit()
 
-    # def test_add_data(self):
-    #     '''测试添加数据'''
-    #     qiqiao.public(self.driver).clickLeftMenu("基础表")
-    #     qiqiao.public(self.driver).clickButtonInTitle("添加")
-    #     qiqiao.singleLineText(self.driver).sendValue("单行文本","自动化")
-    #     qiqiao.public(self.driver).clickSubmit()
-    #     html = self.driver.page_source
-    #     self.assertIn("自动化",html)
+    def test_add_data(self):
+        '''测试添加数据'''
+        qiqiao.public(self.driver).clickLeftMenu("基础表")
+        qiqiao.public(self.driver).clickButtonInTitle("添加")
+        qiqiao.singleLineText(self.driver).sendValue("单行文本","自动化")
+        qiqiao.public(self.driver).clickSubmit()
+        html = self.driver.page_source
+        self.assertIn("自动化",html)
 
 
 

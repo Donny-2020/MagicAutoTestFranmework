@@ -16,5 +16,5 @@ driver.get("http://www.baidu.com")
 # # q.public(driver).clickSearchBtn()
 # time.sleep(5)
 # driver.quit()
-
+qiqiao.singleLineText(driver).sendValue("单行文本","测试")
 

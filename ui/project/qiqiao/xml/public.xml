@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<public>
+	<login name="登录">
+		<account desc="账户登录">id=>account_login</account>
+		<username desc="用户名">id=>gerenban_username</username>
+		<password desc="密码">id=>gerenban_pass</password>
+		<submit desc="登录">id=>btn_login</submit>
+	</login>
+	<runtime name="运行平台">
+		<apppage desc="应用首页">xpath=>//a[@data-mark='header_menu_应用']</apppage>
+		<app desc="点击应用">xpath=>//div[@data-mark='{app}']</app>
+		<leftmenu desc="左侧菜单">xpath=>//span[@title='{menu}']/..</leftmenu>
+		<title_btn desc="表头按钮">xpath=>//div[@data-mark='{button}']/button</title_btn>
+		<form_btn desc="表中操作区按钮">xpath=>//span[@data-mark='{button}_{row}' and @class='normal']</form_btn>
+		<search_btn desc="点击搜索按钮">xpath=>//button[@data-mark='筛选条件搜索按钮']</search_btn>
+		<reset_btn desc="点击重置按钮">xpath=>//button[@data-mark='筛选条件重置按钮']</reset_btn>
+		<expand desc="筛选展开按钮">xpath=>//span[@class='expand']</expand>
+		<precesspage desc="点击流程页面">xpath=>//a[@data-mark='header_menu_流程']</precesspage>
+		<openprecess desc="打开流程">xpath=>//p[@title='{}']/..</openprecess>
+		<submit_btn desc="表单提交按钮">xpath=>//span[contains(text(),'提交')]</submit_btn>
+		<form_delete_btn desc="操作区删除按钮">xpath=>//span[@data-mark='{0}_{1}' and @class='delete']</form_delete_btn>
+		<delete_confirm desc="删除按钮确定">xpath=>//div[@aria-hidden='false']//button[@class='el-button el-button--primary']</delete_confirm>
+	</runtime>
+</public>

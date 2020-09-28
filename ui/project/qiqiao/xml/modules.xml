@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<modules>
+	<single_line_text name="单行文本">
+		<sendValue desc="单行文本输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</sendValue>
+		<search desc="单行文本筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<subForm desc="子表单单行文本输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
+	</single_line_text>
+
+	<date name="日期">
+		<sendValue desc="日期输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</sendValue>
+		<search desc="日期筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[1]</search>
+		<startTime desc="输入开始时间">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[1]</startTime>
+		<endTime desc="输入结束时间">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[2]</endTime>
+		<packup desc="收起输入框">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/label</packup>
+		<subForm desc="子表输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
+	</date>
+
+	<date_time name="日期时间">
+		<sendValue desc="日期时间输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</sendValue>
+		<search desc="日期时间筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[1]</search>
+		<packup desc="收起输入框">xpath=>//div[@data-mark='{name}']/label</packup>
+		<subForm desc="子表日期时间输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
+	</date_time>
+
+	<multiline_text name="多行文本">
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//textarea</sendValue>
+		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<subForm desc="子表单中多行文本输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
+	</multiline_text>
+
+	<multiple_choice name="多项选择">
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</sendValue>
+		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<selectorname desc="点击选项名称">xpath=>//div[@title='{name}']</selectorname>
+		<packup desc="收起下拉框">xpath=>//div[@data-mark='{name}']/label</packup>
+		<subForm desc="子表单中输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
+	</multiple_choice>
+
+	<number name="数字">
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</sendValue>
+		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<subForm desc="子表单中输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
+	</number>
+
+	<rich_text name="富文本">
+
+	</rich_text>
+
+	<single_choice name="单项选择">
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']//div/label[{index}]/span[@class='el-radio__input']</sendValue>
+		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<subForm desc="子表单中输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
+		<dropdown desc="下拉选项">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</dropdown>
+		<value desc="点击下拉选项值">xpath=>//div[@title='{name}' and @class='text_ellipsis']</value>
+		<packup desc="收起下拉框">xpath=>//div[@data-mark='{name}']/label</packup>
+	</single_choice>
+
+	<time name="时间">
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</sendValue>
+		<startTime desc="搜索开始时间">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[1]</startTime>
+		<endTime desc="搜索结束时间">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input[2]</endTime>
+		<packup desc="收起输入框">xpath=>//div[@data-mark='{name}']/label</packup>
+		<subForm desc="子表输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
+	</time>
+
+	<address name="地址选择">
+		<search desc="筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div/div/span</search>
+		<province desc="省份">xpath=>//div[@class='el-cascader-menus el-popper {0}']//span[text()='{1}']</province>
+		<city desc="城市">xpath=>//div[@class='el-cascader-menus el-popper {0}']//span[text()='{1}']</city>
+		<region desc="地区">xpath=>//div[@class='el-cascader-menus el-popper {0}']//span[text()='{1}']</region>
+	</address>
+
+	<depart_selector name="部门单选">
+		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<departname desc="部门全名">xpath=>//div[@title='{}' and @class='text_ellipsis']</departname>
+	</depart_selector>
+
+	<person_selector name="人员单选">
+		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<personname desc="点击要筛选的人名">xpath=>//div[@title='{}' and @class='text_ellipsis']</personname>
+	</person_selector>
+
+	<score name="评分">
+		<search desc="筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
+		<scorenumber desc="点击筛选分数">xpath=>//div[@title='{name}']</scorenumber>
+		<packup desc="收起下拉框">xpath=>//div[@data-mark='{name}']/label</packup>
+	</score>
+	<subform name="子表单">
+		<add_one_line desc="添加一行">xpath=>//div[@data-mark='{name}']//span[text()='添加一行']</add_one_line>
+		<add_btn desc="添加按钮">xpath=>//div[@data-mark='{name}']//span[text()='添加']</add_btn>
+		<save_btn desc="保存按钮">xpath=>//div[@data-mark='子表弹层_{sub}']//span[text()='{button}']</save_btn>
+		<drop desc="鼠标悬浮">xpath=>//tr[@class='el-table__row row_子表单_0']/td[1]</drop>
+		<edit_btn desc="编辑按钮">xpath=>//tr[@class='el-table__row row_子表单_0 hover-row']//span[@class='iconfont iconbianji primary_color']</edit_btn>
+		<delete_btn desc="删除按钮">xpath=>//tr[@class='el-table__row row_子表单_0 hover-row']//span[@class='iconfont iconyewusheji-shanchu primary_color']</delete_btn>
+	</subform>
+
+	<upload_file name="上传文件">
+		<sendValue desc="选择文件">xpath=>//div[@data-mark='{name}']//div[@class='canDrag_wrapper']</sendValue>
+	</upload_file>
+
+	<upload_pic name="上传图片">
+		<sendValue desc="选择图片">xpath=>//div[@data-mark='{name}']/div/div/div/div[@class='el-upload el-upload--picture-card']</sendValue>
+	</upload_pic>
+</modules>
