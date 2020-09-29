@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <modules>
 	<single_line_text name="单行文本">
-		<sendValue desc="单行文本输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</sendValue>
+		<sendValue desc="单行文本输入值">xpath=>//div[@data-mark='{name}']/div//input</sendValue>
+		<required desc="单行文本必填">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</required>
 		<search desc="单行文本筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
 		<subForm desc="子表单单行文本输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
 	</single_line_text>
@@ -25,7 +26,7 @@
 	</date_time>
 
 	<multiline_text name="多行文本">
-		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//textarea</sendValue>
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}']/div//textarea</sendValue>
 		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
 		<subForm desc="子表单中多行文本输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
 	</multiline_text>
@@ -41,7 +42,7 @@
 	</multiple_choice>
 
 	<number name="数字">
-		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</sendValue>
+		<sendValue desc="输入值">xpath=>//div[@data-mark='{name}']/div//input</sendValue>
 		<search desc="筛选页面数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
 		<subForm desc="子表单中输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>
 	</number>

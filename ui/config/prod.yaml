@@ -1,0 +1,5 @@
+prod:
+  #正式环境
+  username: WangDongYi@do
+  password: qiqiao123
+  pc_business: https://qy.do1.com.cn/qiqiao/runtime/?corp_id=ww88ab25700363caa5#/application/business?applicationId=c3f2ca19b1df4d33ba321a3b5e4153c4&mainColor=green&businessModelId=a965e71c9c5a456b8bf3896acbb7f261

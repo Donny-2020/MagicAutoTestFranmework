@@ -1,23 +1,19 @@
 QA:
-  turn: False
   url: https://tqy.do1.net.cn/qa-runtime
   username: WangDongYi@Aa
   password: qiqiao123
 
 UAT:
-  turn: False
   url: http://runtime.qwqa.do1.work
   username: wanghao@uat
   password: qiqiao123
 
 beta:
-  turn: False
   url: https://qy.do1.com.cn/qiqiao/runtime
   username: WangDongYi@A
   password: qiqiao123
 
 prod:
-  turn: True
   url: https://qy.do1.com.cn/qiqiao/runtime/?corp_id=ww88ab25700363caa5#/application/business?applicationId=c3f2ca19b1df4d33ba321a3b5e4153c4&mainColor=green&businessModelId=a965e71c9c5a456b8bf3896acbb7f261
   username: WangDongYi@do
   password: qiqiao123

@@ -1,0 +1,7 @@
+qa:
+  # 测试环境
+  username: WangDongYi@Aa
+  password: qiqiao123
+  singlelinetext: https://tqy.do1.net.cn/qa-runtime/?corp_id=wwf0d1682926a0822d#/application/business?applicationId=5d847ee784d5ff6afa1c6412&mainColor=red&businessModelId=5d8732a284d5ff6afa1c64ac
+  multilinetext: https://tqy.do1.net.cn/qa-runtime/?corp_id=wwf0d1682926a0822d#/application/business?applicationId=5d847ee784d5ff6afa1c6412&mainColor=red&businessModelId=5d8732c184d5ff6afa1c64ad
+  number: https://tqy.do1.net.cn/qa-runtime/?corp_id=wwf0d1682926a0822d#/application/business?applicationId=5d847ee784d5ff6afa1c6412&mainColor=red&businessModelId=5d8732d884d5ff6afa1c64ae

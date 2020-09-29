@@ -1,17 +1,16 @@
 from ui.common.driver import Driver
-from func.config import login
 import time
 from func.read_xml import readXml
 
 class Public(Driver):
 
-    def loginRuntime(self):
+    def loginRuntime(self,url,username,password):
         '''登录PC端运行平台'''
 
-        self.openUrl(login().url)
+        self.openUrl(url)
         self.clickElement(readXml("login","account"))
-        self.sendKeys(readXml("login","username"),login().username)
-        self.sendKeys(readXml("login","password"),login().password)
+        self.sendKeys(readXml("login","username"),username)
+        self.sendKeys(readXml("login","password"),password)
         self.clickElement(readXml("login","submit"))
 
     def openAppPage(self):
