@@ -8,6 +8,8 @@ import unittest
 
 class TestMultilineText(unittest.TestCase):
     '''测试多行文本组件'''
+
+
     def setUp(self) -> None:
         self.driver = webdriver.Chrome("D:\Projects\MagicAutoTestFranmework\\ui\driver\chromedriver.exe")
         url = readYaml("qa.yaml","qa","multilinetext")

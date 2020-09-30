@@ -9,6 +9,8 @@ import unittest
 
 class TestSingleLineText(unittest.TestCase):
     '''测试单行文本基础属性'''
+
+
     def setUp(self) -> None:
         self.driver = webdriver.Chrome("D:\Projects\MagicAutoTestFranmework\\ui\driver\chromedriver.exe")
         url = readYaml("qa.yaml","qa","singlelinetext")
@@ -19,7 +21,7 @@ class TestSingleLineText(unittest.TestCase):
 
     def tearDown(self) -> None:
         time.sleep(1)
-        self.driver.quit()
+        self.driver.refresh()
 
 
     def test_required(self):

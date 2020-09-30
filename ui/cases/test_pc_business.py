@@ -6,6 +6,7 @@ from func.read_yaml import readYaml
 class QiqiaoProblem(unittest.TestCase):
     '''七巧主流业务测试'''
 
+
     def setUp(self) -> None:
         # options = webdriver.ChromeOptions()
         # options.add_argument('--headless')
