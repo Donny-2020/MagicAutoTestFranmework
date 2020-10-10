@@ -11,7 +11,7 @@ if not os.path.exists(path):
     os.makedirs(path)
 if os.path.exists(path):
     pass
-discover = unittest.defaultTestLoader.discover(case_path, pattern='test_number.py', top_level_dir=None)
+discover = unittest.defaultTestLoader.discover(case_path, pattern='test*.py', top_level_dir=None)
 if __name__=="__main__":
     runner = HTMLReport.TestRunner(
                      report_file_name="UI自动化测试报告",

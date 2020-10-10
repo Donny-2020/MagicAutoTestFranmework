@@ -8,7 +8,6 @@ class UploadFile(Driver):
     def uploadFile(self,filed_name,file):
         '''上传文件'''
         loc=readXml("upload_file","sendValue").format(name=filed_name)
-        # loc="xpath=>//div[@data-mark='{name}']//div[@class='canDrag_wrapper']".format(name=filed_name)
         self.clickElement(loc)
         path = "D:\Projects\MagicAutoTestFranmework\\ui\data\img\{file_name}".format(file_name=file)
         os.system("D:\Projects\MagicAutoTestFranmework\\ui\data\exe\\uploadpic.exe %s"%path)

@@ -9,16 +9,22 @@ class TestNumber(unittest.TestCase):
     '''测试数字组件属性'''
 
 
-    def setUp(self) -> None:
-        self.driver = webdriver.Chrome("D:\Projects\MagicAutoTestFranmework\\ui\driver\chromedriver.exe")
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.driver = webdriver.Chrome("D:\Projects\MagicAutoTestFranmework\\ui\driver\chromedriver.exe")
         url = readYaml("qa.yaml", "qa", "number")
         usename = readYaml("qa.yaml","qa","username")
         password = readYaml("qa.yaml","qa","password")
-        qiqiao.public(self.driver).loginRuntime(url,usename,password)
+        qiqiao.public(cls.driver).loginRuntime(url,usename,password)
+
 
     def tearDown(self) -> None:
-        time.sleep(1)
-        self.driver.quit()
+        try:
+            time.sleep(1)
+            self.driver.refresh()
+        except Exception:
+            pass
+
 
     def test_required(self):
         '''测试数字组件必填'''
@@ -66,3 +72,7 @@ class TestNumber(unittest.TestCase):
         link_value = qiqiao.public(self.driver).getAttribute(readXml("number", "sendValue").format(name="数据联动"),
                                                           "title")
         self.assertEqual(link_value, "20.00")
+
+    def test_zzzz(self):
+        '''退出浏览器'''
+        self.driver.quit()

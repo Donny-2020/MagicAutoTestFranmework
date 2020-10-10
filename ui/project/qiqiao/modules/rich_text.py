@@ -3,10 +3,9 @@ from func.read_xml import readXml
 
 class RichText(Driver):
 
-    def sendValueToRichText(self,fild_name,value):
+    def sendValue(self,value):
         '''富文本输入值'''
-
-
-
-    def sendValueToRichTextInSubForm(self,sub_form,filed_name,value):
-        '''子表单的时间输入数据'''
+        self.switchToFrame("xpath=>//iframe[@class='tox-edit-area__iframe']")
+        loc="xpath=>//body[@id='tinymce']/p"
+        self.sendKeys(loc,value)
+        self.switchFrameOut()

@@ -20,5 +20,20 @@
 		<submit_btn desc="表单提交按钮">xpath=>//span[contains(text(),'提交')]</submit_btn>
 		<form_delete_btn desc="操作区删除按钮">xpath=>//span[@data-mark='{0}_{1}' and @class='delete']</form_delete_btn>
 		<delete_confirm desc="删除按钮确定">xpath=>//div[@aria-hidden='false']//button[@class='el-button el-button--primary']</delete_confirm>
+
 	</runtime>
+	<form_comment name="表单评论">
+		<submit desc="提交按钮">xpath=>//button[@class='el-button formNotes_comment_submit el-button--primary']</submit>
+		<add_annex desc="添加附件">xpath=>//div[@class='el-upload el-upload--text']</add_annex>
+		<up_time desc="定位上传时间">xpath=>//div[@class='time']/span[text()='{uptime}']</up_time>
+		<delete_btn desc="评论删除按钮">xpath=>//span[text()='{uptime}']/../../div[1]//span[text()='删除']</delete_btn>
+		<confrim desc="确定删除">xpath=>//div[@class='popper__arrow']/../div[1]/button[@class='el-button el-button--primary']</confrim>
+		<edit_btn desc="编辑评论">xpath=>//span[text()='{uptime}']/../../div[1]/span[text()='编辑']</edit_btn>
+		<edit_add_annex desc="编辑页面，添加附件">xpath=>//div[@aria-label='编辑评论']//div[@class='el-upload el-upload--text']</edit_add_annex>
+		<edit_confrim desc="编辑页面确定按钮">xpath=>//button[@data-mark='确定按钮']</edit_confrim>
+		<edit_delte_annex desc="编辑页面删除附件">xpath=>//div[@class='uploadFileRender_fileList--item']//span[@class='fileOperation']</edit_delte_annex>
+		<table_file desc="评论文件table">xpath=>//div[@id='tab-file']</table_file>
+		<upload_file desc="上传文件">xpath=>//div[@class='el-upload el-upload--text']</upload_file>
+		<upload_file_confirm desc="上传文件提交按钮">xpath=>//button[@class='el-button el-button--primary']/span[text()='提交']</upload_file_confirm>
+	</form_comment>
 </public>

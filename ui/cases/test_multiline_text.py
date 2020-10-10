@@ -9,17 +9,20 @@ import unittest
 class TestMultilineText(unittest.TestCase):
     '''测试多行文本组件'''
 
-
-    def setUp(self) -> None:
-        self.driver = webdriver.Chrome("D:\Projects\MagicAutoTestFranmework\\ui\driver\chromedriver.exe")
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.driver = webdriver.Chrome("D:\Projects\MagicAutoTestFranmework\\ui\driver\chromedriver.exe")
         url = readYaml("qa.yaml","qa","multilinetext")
         usename = readYaml("qa.yaml","qa","username")
         password = readYaml("qa.yaml","qa","password")
-        qiqiao.public(self.driver).loginRuntime(url,usename,password)
+        qiqiao.public(cls.driver).loginRuntime(url,usename,password)
 
     def tearDown(self) -> None:
-        time.sleep(1)
-        self.driver.quit()
+        try:
+            time.sleep(1)
+            self.driver.refresh()
+        except Exception:
+            pass
 
     def test_required(self):
         '''测试多行文本必填'''
@@ -54,3 +57,8 @@ class TestMultilineText(unittest.TestCase):
         link_value = qiqiao.public(self.driver).getAttribute(readXml("multiline_text", "sendValue").format(name="数据联动"),
                                                           "title")
         self.assertEqual(link_value, "20")
+
+
+    def test_zzzz(self):
+        '''关闭浏览器'''
+        self.driver.quit()

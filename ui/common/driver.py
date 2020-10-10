@@ -76,7 +76,7 @@ class Driver(object):
                 "Please enter the correct targeting elements,'id','name','class','link_text','xpath','css'.")
         return element
 
-    @retry(stop_max_attempt_number=3, wait_fixed=3000)
+    # @retry(stop_max_attempt_number=3, wait_fixed=3000)
     def getElements(self, css):
         """
         判断元素定位方式，并返回元素列表
@@ -175,6 +175,7 @@ class Driver(object):
         driver.move_to_element("css=>#el")
         """
         el = self.getElement(css)
+        self.driver.execute_script("arguments[0].scrollIntoView()",el)
         ActionChains(self.driver).move_to_element(el).perform()
 
     def doubleClick(self, css):
@@ -348,10 +349,11 @@ class Driver(object):
             if handle != original_window:
                 self.driver.switch_to.window(handle)
 
-    def getScreenshot(self):
+    def getScreenshot(self,file_path):
         """将当前窗口的屏幕截图保存到PNG图像文件中.
         用法:
         driver.get_screen_shot('/Screenshots/foo.png')
         """
-        self.driver.get_screenshot_as_base64()
+        # self.driver.get_screenshot_as_base64()
+        self.driver.save_screenshot(file_path)
 

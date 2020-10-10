@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <modules>
 	<single_line_text name="单行文本">
-		<sendValue desc="单行文本输入值">xpath=>//div[@data-mark='{name}']/div//input</sendValue>
+		<sendValue desc="单行文本输入值">xpath=>//div[@data-mark='{name}' and @class='el-form-item']/div//input</sendValue>
 		<required desc="单行文本必填">xpath=>//div[@data-mark='{name}' and @class='el-form-item is-required']/div//input</required>
 		<search desc="单行文本筛选数据">xpath=>//div[@data-mark='{name}' and @searhstatus='true']/div//input</search>
 		<subForm desc="子表单单行文本输入值">xpath=>//div[@data-mark='子表弹层_{form}']//div[@data-mark='{feild}']//input</subForm>

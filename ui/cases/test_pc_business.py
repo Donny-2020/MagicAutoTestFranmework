@@ -6,29 +6,33 @@ from func.read_yaml import readYaml
 class QiqiaoProblem(unittest.TestCase):
     '''七巧主流业务测试'''
 
-
-    def setUp(self) -> None:
+    @classmethod
+    def setUpClass(cls) -> None:
         # options = webdriver.ChromeOptions()
         # options.add_argument('--headless')
         url = readYaml("prod.yaml","prod","pc_business")
         usename = readYaml("prod.yaml","prod","username")
         password = readYaml("prod.yaml","prod","password")
-        self.driver = webdriver.Chrome(executable_path="D:\Projects\MagicAutoTestFranmework\\ui\driver\chromedriver.exe")
-        qiqiao.public(self.driver).loginRuntime(url,usename,password)
+        cls.driver = webdriver.Chrome(executable_path="D:\Projects\MagicAutoTestFranmework\\ui\driver\chromedriver.exe")
+        qiqiao.public(cls.driver).loginRuntime(url,usename,password)
 
 
     def tearDown(self) -> None:
-        time.sleep(1)
-        self.driver.quit()
+        try:
+            time.sleep(1)
+            self.driver.refresh()
+        except Exception:
+            pass
 
-    # def test_add_data(self):
-    #     '''测试添加数据'''
-    #     qiqiao.public(self.driver).clickLeftMenu("基础表")
-    #     qiqiao.public(self.driver).clickButtonInTitle("添加")
-    #     qiqiao.singleLineText(self.driver).sendValue("单行文本","自动化")
-    #     qiqiao.public(self.driver).clickSubmit()
-    #     html = self.driver.page_source
-    #     self.assertIn("自动化",html)
+
+    def test_add_data(self):
+        '''测试添加数据'''
+        qiqiao.public(self.driver).clickLeftMenu("基础表")
+        qiqiao.public(self.driver).clickButtonInTitle("添加")
+        qiqiao.singleLineText(self.driver).sendValue("单行文本","自动化")
+        qiqiao.public(self.driver).clickSubmit()
+        html = self.driver.page_source
+        self.assertIn("自动化",html)
 
 
 
@@ -123,6 +127,7 @@ class QiqiaoProblem(unittest.TestCase):
         '''通过时间筛选页面数据'''
         qiqiao.public(self.driver).clickExpand()
         qiqiao.time(self.driver).searchData("时间","11:30","12:00")
+        time.sleep(10)
         qiqiao.public(self.driver).clickSearchBtn()
         time.sleep(1)
         title = qiqiao.public(self.driver).getText("xpath=>//span[@class='el-pagination__total']")
@@ -203,4 +208,18 @@ class QiqiaoProblem(unittest.TestCase):
         title = qiqiao.public(self.driver).getText("xpath=>//span[@class='el-pagination__total']")
         self.assertIn("0",title)
 
+    def test_form_only_check(self):
+        '''测试表单唯一校验'''
+        qiqiao.public(self.driver).clickButtonInTitle("添加")
+        qiqiao.singleLineText(self.driver).sendValue("单行文本","测试数据")
+        qiqiao.public(self.driver).clickSubmit()
+        msg = qiqiao.public(self.driver).getText("xpath=>//p[@class='el-message__content']")
+        self.assertEqual(msg,"单行文本必须唯一！！！")
+
+
+
+
+    def test_zzzz(self):
+        '''关闭浏览器'''
+        self.driver.quit()
 

@@ -12,8 +12,12 @@ class Time(Driver):
     def searchData(self,filed_name,start_time,end_time):
         '''使用时间字段筛选页面数据'''
         start_loc = readXml("time","startTime").format(name=filed_name)
+        self.clickElement(start_loc)
+        self.clear(start_loc)
         self.sendKeys(start_loc,start_time)
         end_loc = readXml("time","endTime").format(name=filed_name)
+        self.clickElement(end_loc)
+        self.clear(end_loc)
         self.sendKeys(end_loc,end_time)
         self.clickElement(readXml("time","packup").format(name=filed_name))
 

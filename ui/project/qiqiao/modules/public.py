@@ -1,3 +1,7 @@
+import os
+
+from retrying import retry
+
 from ui.common.driver import Driver
 import time
 from func.read_xml import readXml
@@ -33,10 +37,17 @@ class Public(Driver):
         loc = readXml("runtime","title_btn").format(button=button_name)
         self.clickElement(loc)
 
+
     def clickButtonInForm(self,button_name,row_num):
         '''点击表单数据行，操作区按钮'''
         loc = readXml("runtime","form_btn").format(button=button_name,row=row_num-1)
-        self.getElements(loc)[2].click()
+        elements = self.getElements(loc)
+        if len(elements)==0:
+            time.sleep(1)
+            self.F5()
+            self.getElements(loc)[2].click()
+        else:
+            elements[2].click()
 
     def clickSearchBtn(self):
         '''点击搜索按钮'''
@@ -77,3 +88,57 @@ class Public(Driver):
         self.getElements(loc)[2].click()
         delete_loc = readXml("runtime","delete_confirm")
         self.clickElement(delete_loc)
+
+
+    def submitComment(self):
+        '''点击表单评论提交按钮'''
+        loc = readXml("form_comment","submit")
+        self.clickElement(loc)
+
+    def commentAddAnnex(self,file_name):
+        '''添加评论附件'''
+        loc = readXml("form_comment","add_annex")
+        self.clickElement(loc)
+        time.sleep(1)
+        os.system("D:\Projects\MagicAutoTestFranmework\\ui\data\exe\\uploadpic.exe %s"%file_name)
+
+
+
+    def delete_comment(self,loc_time):
+        '''根据评论时间，删除评论'''
+
+        loc = readXml("form_comment", "up_time").format(uptime=loc_time)
+        self.moveToElement(loc)
+        self.clickElement(readXml("form_comment", "delete_btn").format(uptime=loc_time))
+        self.clickElement(readXml("form_comment","confrim"))
+
+    def edit_comment(self,loc_time):
+        '''编辑评论'''
+        loc = readXml("form_comment", "up_time").format(uptime=loc_time)
+        self.moveToElement(loc)
+        self.clickElement(readXml("form_comment", "edit_btn").format(uptime=loc_time))
+
+    def editCommentPageAddAnnex(self,file_name):
+        '''点击编辑页面添加附件按钮'''
+        self.clickElement(readXml("form_comment", "edit_add_annex"))
+        time.sleep(1)
+        os.system("D:\Projects\MagicAutoTestFranmework\\ui\data\exe\\uploadpic.exe %s" % file_name)
+        time.sleep(1)
+        self.clickElement(readXml("form_comment","edit_confrim"))
+
+
+    def editCommentPageDeleteAnnex(self):
+        '''编辑页面删除附件'''
+
+        self.clickElement(readXml("form_comment","edit_delte_annex"))
+        self.clickElement(readXml("form_comment","edit_confrim"))
+
+
+    def commentUploadFile(self,file_name):
+        '''评论上传文件'''
+        self.clickElement(readXml("form_comment","table_file"))
+        self.clickElement(readXml("form_comment","upload_file"))
+        time.sleep(1)
+        os.system("D:\Projects\MagicAutoTestFranmework\\ui\data\exe\\uploadpic.exe %s" % file_name)
+        time.sleep(1)
+        self.clickElement(readXml("form_comment","upload_file_confirm"))
